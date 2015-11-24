@@ -10,11 +10,13 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr>
-		        <td>John</td>
-		        <td>Doe</td>
-		        <td>john@example.com</td>
-		      </tr>
+		    	<% @games.each_with_index do |f, index| %>
+			      <tr>
+			        <td><%= index %></td>
+			        <td><%= f.p_score %></td>
+			        <td><%= f.d_score %></td>
+			      </tr>
+			    <% end %>
 		    </tbody>
 		</table>
 	</div>

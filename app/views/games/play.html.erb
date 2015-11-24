@@ -2,22 +2,24 @@
 	<div class='cl-sm-6 cl-md-6 pull-left'>
 		<div class='row'>
 			<div class='cl-md-12 margin-bot-40'>
-				<%= link_to 'DEALER',"#",:class=>'button button-primary button-rounded button-jumbo' %>
+				<%= link_to 'PLAYER',"#",:class=>'button button-primary button-rounded button-jumbo' %>
 			</div>
-			<div class='cl-md-12'>
-				<%= link_to "3","#",:class=>'button button-primary button-box button-large' %>
-				<%= link_to "4","#",:class=>'button button-primary button-box button-large' %>
+			<div class='cl-md-12 margin-right-10' id="hit">
+				<% @game_step.player_cards.each do |f| %>
+					<%= link_to f, "#",:class=>'button button-primary button-box button-large' %>
+				<% end %>
 			</div>
 		</div>
 	</div>
 	<div class='cl-sm-6 cl-md-6 pull-right'>
 		<div class='row'>
 			<div class='cl-md-12 margin-bot-40'>
-				<%= link_to 'PLAYER',"#",:class=>'button button-royal button-rounded button-jumbo' %>
+				<%= link_to 'DEALER',"#",:class=>'button button-royal button-rounded button-jumbo' %>
 			</div>
-			<div class='cl-md-12'>
-				<%= link_to "3","#",:class=>'button button-royal button-box button-large' %>
-				<%= link_to "4","#",:class=>'button button-royal button-box button-large' %>
+			<div class='cl-md-12 margin-right-10' id="stand">
+				<% @game_step.dealer_cards.each do |f| %>
+					<%= link_to f, "#",:class=>'button button-primary button-box button-large' %>
+				<% end %>
 			</div>
 		</div>
 	</div>
@@ -25,8 +27,8 @@
 <div class="row margin-top-40">
 	<div class="cl-sm-12 cl-md-12">
 		<center>
-			<%= link_to "Pick a Card","#",:class=>'button button-3d button-action button-pill' %>
-			<%= link_to "SKip","#",:class=>'button button-3d button-pill button-cuation' %>
+			<%= link_to "Hit", hit_path(id: @game.id, step_type: 'hit'), remote: true,:class=>'button button-glow button-rounded button-caution' %>
+			<%= link_to "Stand", hit_path(id: @game.id, step_type: 'stand'), remote: true, :class=>'button button-glow button-rounded button-highlight' %>
 		</center>
 	</div>
 </div>
