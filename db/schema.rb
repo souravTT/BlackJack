@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20151124073632) do
   create_table "games", force: :cascade do |t|
     t.integer  "p_score"
     t.integer  "d_score"
-    t.string   "winner"
+    t.string   "result"
     t.integer  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

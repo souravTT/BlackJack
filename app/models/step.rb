@@ -6,6 +6,7 @@ class Step < ActiveRecord::Base
   			'K' => 10, 'A' => 11, '' => 0, nil => 0
   		}
 
+  #update game score on each step
   def update_game_score
   	game = self.game
   	game.d_score = game.d_score + get_score(d_card)
@@ -22,6 +23,7 @@ class Step < ActiveRecord::Base
   end	
 
   private
+  #getting player and dealer score from SCORE constant
   def get_score(cards)
   	cards = cards.to_s.split(',')
   	(cards.size == 1) ? SCORE[cards[0]] : SCORE[cards[0]] + SCORE[cards[1]]

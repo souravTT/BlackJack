@@ -10,8 +10,10 @@ class GamesController < ApplicationController
 
   def hit_or_stand
   	@game = Game.find(params[:id])
-  	@step_type = params[:step_type]
-  	@card = @game.hit_or_stand(@step_type)
+    @step_type = params[:step_type]
+    @card = @game.hit_or_stand(@step_type)
+    @game.reload
+    @game_completed = @game.completed?
   end
 
   def result
